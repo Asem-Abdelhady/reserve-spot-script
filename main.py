@@ -42,36 +42,38 @@ def log_in():
 
 def load_spot():
     spot = None
-    if DAY == "tue":
-        spot = WAIT.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    "/html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/div/table/tbody/tr[20]/td[3]/a",
+    match DAY:
+        case "tue":
+            spot = WAIT.until(
+                EC.presence_of_element_located(
+                    (
+                        By.XPATH,
+                        "/html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/div/table/tbody/tr[20]/td[3]/a",
+                    )
                 )
             )
-        )
-    elif DAY == "thu":
-        spot = WAIT.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    "/html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/div/table/tbody/tr[61]/td[3]/a",
+
+        case "thu":
+            spot = WAIT.until(
+                EC.presence_of_element_located(
+                    (
+                        By.XPATH,
+                        "/html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/div/table/tbody/tr[61]/td[3]/a",
+                    )
                 )
             )
-        )
-    if DAY == "sat":
-        spot = WAIT.until(
-            EC.presence_of_element_located(
-                (
-                    By.XPATH,
-                    "/html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/div/table/tbody/tr[91]/td[3]/a",
+        case "sat":
+            spot = WAIT.until(
+                EC.presence_of_element_located(
+                    (
+                        By.XPATH,
+                        "/html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]/div/div/table/tbody/tr[91]/td[3]/a",
+                    )
                 )
             )
-        )
-    else:
-        print("Day entered wrong")
-        exit(1)
+        case _:
+            print("Day entered wrong")
+            exit(1)
 
     return spot
 
