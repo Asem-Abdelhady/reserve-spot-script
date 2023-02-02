@@ -3,4 +3,6 @@ cd /home/asem/PycharmProjects/reserve-spot
 source ./venv/bin/activate
 echo 'Entered the cronjob1' >./cronjob.txt
 python3 ./main.py $1 $2 &>./out.log
-echo 'Exited the cronjob1' >./cronjob_exit.txt
+echo 'Finished main' >./cronjob_exit.txt
+python3 ./main2.py $1 $2 &>./out.log
+echo 'Finished main2' >./cronjob_exit.txt
