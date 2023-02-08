@@ -48,9 +48,9 @@ def reserve_spot():
     spots = load_spots()
     spot = None
     match DAY:
-        case "tue":
+        case "mon":
             spot = spots[0]
-        case "thu":
+        case "wed":
             spot = spots[1]
         case "sat":
             spot = spots[2]
